@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+LAYOUT=$(setxkbmap -query | grep layout)
+
+if [[ ! -z $1 ]] ; then
+	setxkbmap -layout $1
+	exit 0
+fi
+
+if [[ $LAYOUT =~ 'us' ]] ; then
+	NEW='cz'
+else NEW='us'
+fi
+
+setxkbmap -layout $NEW

@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+~/.scripts/compton_restart
+~/.scripts/feh_bg
+
+echo "Here you go :)"

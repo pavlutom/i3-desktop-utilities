@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+PASINK="/home/tomesh/.scripts/pasink"
+
+BUILTIN="Built-in Audio Analog Stereo"
+HEADSET="MDR-ZX220BT"
+
+
+CURRENT_SINK=$($PASINK -l | head -3 | tail -1 | cut  -f2)
+
+if [[ $CURRENT_SINK == $BUILTIN ]]; then
+	$PASINK $HEADSET
+else
+	$PASINK $BUILTIN
+fi

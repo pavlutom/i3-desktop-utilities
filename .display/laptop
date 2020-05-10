@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+source ~/.scripts/.display/.names
+
+xrandr --output $M1 --off
+xrandr --output $M2 --off
+
+sh ~/.scripts/feh_bg

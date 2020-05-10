@@ -1,0 +1,30 @@
+#!/bin/zsh
+
+# load
+BR=$(~/.scripts/.utils/parsepercent $1)
+FRAC=$(($BR / 100.0))
+source ~/.scripts/.display/.names
+
+# get max hardware backlight value
+MAX_HW=$(brightnessctl --device=intel_backlight m)
+
+# get hw brightness value
+zmodload zsh/mathfunc
+integer E_BR=$(( rint((exp($FRAC) - 1) / (exp(1) - 1) * $MAX_HW) ))
+
+# if we can use laptop display backlight
+if [[ $BR -ge 0 && $BR -le 100 ]]; then
+	# set xrandr to 100%
+	xrandr --output $M0 --brightness 1
+	# use hardware
+	brightnessctl --device=intel_backlight set $E_BR
+else
+	# set hardware to 100%
+	echo $MAX_HW > /sys/class/backlight/intel_backlight/brightness
+	# use xrandr
+	xrandr --output $M0 --brightness $FRAC
+fi
+
+# external monitors (always using xrandr)
+xrandr --output $M1 --brightness $FRAC
+xrandr --output $M2 --brightness $FRAC

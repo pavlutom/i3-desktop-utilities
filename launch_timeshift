@@ -1,0 +1,1 @@
+xhost +local:0 && sudo timeshift-gtk

@@ -1,0 +1,17 @@
+#!/bin/zsh
+
+ARG=$(echo $1 | tr '[:upper:]' '[:lower:]')
+
+if [[ -z $ARG ]]; then
+	exit 1
+elif [[ $ARG = 'off' ]]; then
+	VOL=0
+elif [[ $ARG = 'max' ]]; then
+	VOL=100
+elif [[ $ARG =~ '%$' ]]; then
+	VOL=$(echo $ARG | cut -d '%' -f1)
+else
+	VOL=$ARG
+fi
+
+echo $VOL

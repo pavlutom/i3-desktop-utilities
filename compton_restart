@@ -1,0 +1,3 @@
+pkill compton
+compton --config ~/.config/compton.conf -b
+

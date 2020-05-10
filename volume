@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+VOL=$(~/.scripts/.utils/parsepercent $1)
+
+~/.scripts/pasink -v $VOL

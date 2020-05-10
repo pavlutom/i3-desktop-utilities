@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+i3lock -e -i /home/tomesh/Pictures/wallpapers/triangles.png
