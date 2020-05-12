@@ -3,3 +3,6 @@
 VOL=$(~/.scripts/.utils/parsepercent $1)
 
 ~/.scripts/pasink -v $VOL
+
+# notify
+dunstify -u 0 -t 1500 "Volume $VOL%"
