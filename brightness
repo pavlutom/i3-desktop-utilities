@@ -1,5 +1,8 @@
 #!/bin/zsh
 
+
+zmodload zsh/mathfunc
+
 # define some constants
 HW_LOWEST=140;		KEY_LOWEST='lowest'
 HW_LOW=400;			KEY_LOW='low'
@@ -24,25 +27,16 @@ elif [[ $REQ == $KEY_MAX ]]; then
 	HW_REQ=$HW_MAX
 fi
 
-# set special value if requested
-if [[ $HW_REQ ]]; then
-	# set xrandr to 100%
-	xrandr --output $M0 --brightness 1
-	# use hardware
-	brightnessctl --device=intel_backlight set $HW_REQ
-	# notify
-	dunstify -u 0 -t 1500 "Brightness set to $REQ"
-
-	exit 0
+# get brightness percentage
+if [[ $HW_REQ ]]; then		# calculate from special value
+	HW_BR=$HW_REQ
+	FRAC=$(( $HW_REQ / 24000.0 ))
+	integer BR=$(( rint( $FRAC * 100 ) ))
+else						# parse from input
+	BR=$(~/.scripts/.utils/parsepercent $1)
+	FRAC=$(($BR / 100.0))
+	integer HW_BR=$(( rint($FRAC * $HW_MAX) ))
 fi
-
-# init
-BR=$(~/.scripts/.utils/parsepercent $1)
-FRAC=$(($BR / 100.0))
-
-# get hw brightness value
-zmodload zsh/mathfunc
-integer HW_BR=$(( rint($FRAC * $HW_MAX) ))
 
 # if we can use laptop display backlight
 if [[ $BR -ge 0 && $BR -le 100 ]]; then
