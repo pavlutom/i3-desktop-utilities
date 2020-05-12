@@ -53,8 +53,10 @@ else
 fi
 
 # external monitors (always using xrandr)
-xrandr --output $M1 --brightness $FRAC
-xrandr --output $M2 --brightness $FRAC
+FRAC_EXT=$(( $FRAC ** 0.25 ))
+
+xrandr --output $M1 --brightness $FRAC_EXT
+xrandr --output $M2 --brightness $FRAC_EXT
 
 # notify
 dunstify -u 0 -t 1500 "Brightness $BR%"
