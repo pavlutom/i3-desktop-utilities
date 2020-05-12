@@ -1,12 +1,29 @@
 #!/bin/zsh
 
-# load
+# define some constants
+HW_LOWEST=140;		KEY_LOWEST='lowest'
+HW_LOW=400;			KEY_LOW='low'
+HW_MEDIUM=1500;		KEY_MEDIUM='medium'
+HW_HIGH=12000;		KEY_HIGH='high'
+HW_MAX=24000;		KEY_MAX='max'
+
+# get requested value
+REQ=$1
+if [[ $REQ == $KEY_LOWEST ]]; then
+	HW_REQ=$HW_LOWEST
+elif [[ $REQ == $KEY_LOW ]]; then
+	HW_REQ=$HW_LOW
+elif [[ $REQ == $KEY_MEDIUM ]]; then
+	HW_REQ=$HW_MEDIUM
+elif [[ $REQ == $KEY_HIGH ]]; then
+	HW_REQ=$HW_HIGH
+elif [[ $REQ == $KEY_MAX ]]; then
+	HW_REQ=$HW_MAX
+
+# init
 BR=$(~/.scripts/.utils/parsepercent $1)
 FRAC=$(($BR / 100.0))
 source ~/.scripts/.display/.names
-
-# get max hardware backlight value
-HW_MAX=$(brightnessctl --device=intel_backlight m)
 
 # get hw brightness value
 zmodload zsh/mathfunc
@@ -18,6 +35,7 @@ if [[ $BR -ge 0 && $BR -le 100 ]]; then
 	xrandr --output $M0 --brightness 1
 	# use hardware
 	brightnessctl --device=intel_backlight set $HW_BR
+	echo actual: $HW_BR percent: $BR
 else
 	# set hardware to 100%
 	echo $HW_MAX > /sys/class/backlight/intel_backlight/brightness
