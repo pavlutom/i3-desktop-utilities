@@ -10,8 +10,10 @@ HW_MEDIUM=1500;		KEY_MEDIUM='medium'
 HW_HIGH=12000;		KEY_HIGH='high'
 HW_MAX=24000;		KEY_MAX='max'
 
+# setup increase/decrease
 KEY_INC='inc'
 KEY_DEC='dec'
+integer HW_STEP=$(( $HW_MAX * 0.1 ))
 
 # output constants
 if [[ $1 == 'keys' ]]; then
@@ -21,18 +23,28 @@ fi
 
 # load hardware
 source ~/.scripts/.display/.names
-$HW_CMD='brightnessctl --device=intel_backlight'
+DEV='--device=intel_backlight'
 
 # get inc/dec
-HW_CUR=$($HW_CMD get)
+HW_CUR=$(brightnessctl $DEV get)
 if [[ $1 == $KEY_INC ]]; then
-	echo tba
+	# treat low values
+	if [[ $HW_CUR -lt HW_LOWEST ]]; then
+		HW_REQ=$HW_LOWEST
+	elif [[ $HW_CUR -lt HW_LOW ]]; then
+		HW_REQ=$HW_LOW
+	elif [[ $HW_CUR -lt HW_MEDIUM ]]; then
+		HW_REQ=$HW_MEDIUM
+	# add 10%
+	else
+		integer HW_REQ=$(( floor(($HW_CUR + $HW_STEP) / $HW_STEP) * $HW_STEP ))
+	fi
+
 elif [[ $1 == $KEY_DEC ]]; then
 	echo tba
-fi
 
 # get requested value
-if [[ $1 == $KEY_LOWEST ]]; then
+elif [[ $1 == $KEY_LOWEST ]]; then
 	HW_REQ=$HW_LOWEST
 elif [[ $1 == $KEY_LOW ]]; then
 	HW_REQ=$HW_LOW
@@ -45,7 +57,7 @@ elif [[ $1 == $KEY_MAX ]]; then
 fi
 
 # get brightness percentage
-if [[ $HW_REQ ]]; then		# calculate from special value
+if [[ $HW_REQ ]]; then		# calculate from requested value
 	HW_BR=$HW_REQ
 	FRAC=$(( $HW_REQ / 24000.0 ))
 	integer BR=$(( rint( $FRAC * 100 ) ))
@@ -60,10 +72,10 @@ if [[ $BR -ge 0 && $BR -le 100 ]]; then
 	# set xrandr to 100%
 	xrandr --output $M0 --brightness 1
 	# use hardware
-	$HW_CMD set $HW_BR
+	brightnessctl $DEV set $HW_BR
 else
 	# set hardware to 100%
-	$HW_CMD set $HW_MAX
+	brightnessctl $DEV set $HW_MAX
 	# use xrandr
 	xrandr --output $M0 --brightness $FRAC
 fi
