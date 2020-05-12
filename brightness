@@ -6,9 +6,9 @@ zmodload zsh/mathfunc
 # define some constants
 HW_LOWEST=140;		KEY_LOWEST='lowest'
 HW_LOW=400;			KEY_LOW='low'
-HW_MEDIUM=1500;		KEY_MEDIUM='medium'
-HW_HIGH=12000;		KEY_HIGH='high'
-HW_MAX=24000;		KEY_MAX='max'
+HW_MEDIUM=1500;		KEY_MEDIUM='Medium'
+HW_HIGH=12000;		KEY_HIGH='HIGH'
+HW_MAX=24000;		KEY_MAX='MAX'
 
 # setup increase/decrease
 KEY_INC='inc'
@@ -17,7 +17,7 @@ integer HW_STEP=$(( $HW_MAX * 0.1 ))
 
 # output constants
 if [[ $1 == 'keys' ]]; then
-	echo "$KEY_LOWEST\n$KEY_LOW\n$KEY_MEDIUM\n$KEY_HIGH\n$KEY_MAX"
+	echo -e "$KEY_LOWEST\n$KEY_LOW\n$KEY_MEDIUM\n$KEY_HIGH\n$KEY_MAX"
 	exit 0
 fi
 
