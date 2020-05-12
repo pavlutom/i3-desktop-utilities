@@ -10,20 +10,25 @@ HW_MEDIUM=1500;		KEY_MEDIUM='medium'
 HW_HIGH=12000;		KEY_HIGH='high'
 HW_MAX=24000;		KEY_MAX='max'
 
+# output constants
+if [[ $1 == 'keys' ]]; then
+	echo "$KEY_LOWEST\n$KEY_LOW\n$KEY_MEDIUM\n$KEY_HIGH\n$KEY_MAX"
+	exit 0
+fi
+
 # load hardware
 source ~/.scripts/.display/.names
 
 # get requested value
-REQ=$1
-if [[ $REQ == $KEY_LOWEST ]]; then
+if [[ $1 == $KEY_LOWEST ]]; then
 	HW_REQ=$HW_LOWEST
-elif [[ $REQ == $KEY_LOW ]]; then
+elif [[ $1 == $KEY_LOW ]]; then
 	HW_REQ=$HW_LOW
-elif [[ $REQ == $KEY_MEDIUM ]]; then
+elif [[ $1 == $KEY_MEDIUM ]]; then
 	HW_REQ=$HW_MEDIUM
-elif [[ $REQ == $KEY_HIGH ]]; then
+elif [[ $1 == $KEY_HIGH ]]; then
 	HW_REQ=$HW_HIGH
-elif [[ $REQ == $KEY_MAX ]]; then
+elif [[ $1 == $KEY_MAX ]]; then
 	HW_REQ=$HW_MAX
 fi
 
