@@ -46,7 +46,7 @@ if [[ $BR -ge 0 && $BR -le 100 ]]; then
 	brightnessctl --device=intel_backlight set $HW_BR
 else
 	# set hardware to 100%
-	echo $HW_MAX > /sys/class/backlight/intel_backlight/brightness
+	brightnessctl --device=intel_backlight set $HW_MAX
 	# use xrandr
 	xrandr --output $M0 --brightness $FRAC
 fi
