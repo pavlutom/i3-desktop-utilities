@@ -44,7 +44,6 @@ if [[ $BR -ge 0 && $BR -le 100 ]]; then
 	xrandr --output $M0 --brightness 1
 	# use hardware
 	brightnessctl --device=intel_backlight set $HW_BR
-	echo actual: $HW_BR percent: $BR
 else
 	# set hardware to 100%
 	echo $HW_MAX > /sys/class/backlight/intel_backlight/brightness
@@ -54,7 +53,6 @@ fi
 
 # external monitors (always using xrandr)
 FRAC_EXT=$(( $FRAC ** 0.25 ))
-
 xrandr --output $M1 --brightness $FRAC_EXT
 xrandr --output $M2 --brightness $FRAC_EXT
 
