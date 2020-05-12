@@ -59,4 +59,9 @@ xrandr --output $M1 --brightness $FRAC_EXT
 xrandr --output $M2 --brightness $FRAC_EXT
 
 # notify
-dunstify -u 0 -t 1500 "Brightness $BR%"
+if [[ $HW_REQ ]]; then
+	NOTIFY=$HW_REQ
+else
+	NOTIFY=$BR%
+fi
+dunstify -u 0 -t 1500 "Brightness $NOTIFY"
