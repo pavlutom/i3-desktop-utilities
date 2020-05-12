@@ -38,10 +38,24 @@ if [[ $1 == $KEY_INC ]]; then
 	# add 10%
 	else
 		integer HW_REQ=$(( floor(($HW_CUR + $HW_STEP) / $HW_STEP) * $HW_STEP ))
+		# do not exceed max
+		if [[ $HW_REQ -gt $HW_MAX ]]; then
+			HW_REQ=$HW_MAX
+		fi
 	fi
 
 elif [[ $1 == $KEY_DEC ]]; then
-	echo tba
+	# lower by 10%
+	if [[ $HW_CUR -gt $(( $HW_MEDIUM + $HW_STEP )) ]]; then
+		integer HW_REQ=$(( ceil(($HW_CUR - $HW_STEP * 1.0) / $HW_STEP) * $HW_STEP ))
+	# treat low values
+	elif [[ $HW_CUR -gt $HW_MEDIUM ]]; then
+		HW_REQ=$HW_MEDIUM
+	elif [[ $HW_CUR -gt $HW_LOW ]]; then
+		HW_REQ=$HW_LOW
+	else
+		HW_REQ=$HW_LOWEST
+	fi
 
 # get requested value
 elif [[ $1 == $KEY_LOWEST ]]; then
