@@ -1,9 +1,31 @@
 #!/bin/zsh
 
+
+zmodload zsh/mathfunc
+
+# get current volume
 CUR=$(~/.scripts/pasink -ll | head -3 | tail -1 | cut -f6 | cut -d% -f1)
 
-VOL=$(~/.scripts/.utils/parsepercent $1)
+# setup inc/dec
+KEY_INC='inc'
+KEY_DEC='dec'
+STEP=10
 
+# calculate volume from current
+if [[ $1 == 'inc' ]]; then
+	VOL=$(( (($CUR + $STEP) / $STEP) * $STEP ))
+elif [[ $1 == 'dec' ]]; then
+	integer VOL=$(( ceil(($CUR - $STEP) * 1.0 / $STEP) * $STEP ))
+	# do not go below 0
+	if [[ $VOL -lt 0 ]]; then
+		VOL=0
+	fi
+else
+	# get volume from input
+	VOL=$(~/.scripts/.utils/parsepercent $1)
+fi
+
+# set volume
 ~/.scripts/pasink -v $VOL
 
 # notify
