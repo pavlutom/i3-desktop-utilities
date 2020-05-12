@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+CUR=$(~/.scripts/pasink -ll | head -3 | tail -1 | cut -f6 | cut -d% -f1)
+
 VOL=$(~/.scripts/.utils/parsepercent $1)
 
 ~/.scripts/pasink -v $VOL
