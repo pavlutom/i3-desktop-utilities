@@ -9,4 +9,5 @@ xrandr --output $M1 --mode 1920x1080 --right-of $M0
 xrandr --addmode $M2 1920x1080
 xrandr --output $M2 --mode 1920x1080 --right-of $M1
 
+sh ~/.scripts/compton_restart
 sh ~/.scripts/feh_bg
