@@ -7,6 +7,9 @@ HW_MEDIUM=1500;		KEY_MEDIUM='medium'
 HW_HIGH=12000;		KEY_HIGH='high'
 HW_MAX=24000;		KEY_MAX='max'
 
+# load hardware
+source ~/.scripts/.display/.names
+
 # get requested value
 REQ=$1
 if [[ $REQ == $KEY_LOWEST ]]; then
@@ -19,11 +22,23 @@ elif [[ $REQ == $KEY_HIGH ]]; then
 	HW_REQ=$HW_HIGH
 elif [[ $REQ == $KEY_MAX ]]; then
 	HW_REQ=$HW_MAX
+fi
+
+# set special value if requested
+if [[ $HW_REQ ]]; then
+	# set xrandr to 100%
+	xrandr --output $M0 --brightness 1
+	# use hardware
+	brightnessctl --device=intel_backlight set $HW_REQ
+	# notify
+	dunstify -u 0 -t 1500 "Brightness set to $REQ"
+
+	exit 0
+fi
 
 # init
 BR=$(~/.scripts/.utils/parsepercent $1)
 FRAC=$(($BR / 100.0))
-source ~/.scripts/.display/.names
 
 # get hw brightness value
 zmodload zsh/mathfunc
