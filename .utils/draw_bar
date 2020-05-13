@@ -1,14 +1,7 @@
 #!/bin/zsh
 
-STEPS=20
 
-VAL=$1
-test $2 && OFF_TEXT=$2 || OFF_TEXT='off'
-OT_LEN=$(printf "%s" "$OFF_TEXT" | wc -m)
-
-ACTIVE=$(( $VAL / (100/$STEPS) ))
-INACTIVE=$(( $STEPS - $ACTIVE ))
-
+# function that prints symbol=$2 n=$1 times
 draw() {
 	COUNT=$1
 	SYMBOL=$2
@@ -16,9 +9,26 @@ draw() {
 	seq -s $SYMBOL 0 $COUNT | sed 's/[0-9]//g'
 }
 
-A_SYM="─"
-I_SYM="·"
+# constants
+STEPS=20	# lenght of bar
+A_SYM="─"	# active symbol (on)
+I_SYM="·"	# inactive symbol (off)
 
-test $VAL -ne 0 \
+# load args
+VAL=$1	# value (percent)
+test $2 && TEXT=$2 || TEXT='off'	# text when turned off (o%)
+test $VAL -gt 100 && TEXT=$VAL%		# text when over 100%
+
+# symbol used around text
+test $VAL -gt 100 && O_SYM=$A_SYM || O_SYM=$I_SYM
+
+# calculate sizes
+T_LEN=$(printf "%s" "$TEXT" | wc -m)
+
+ACTIVE=$(( $VAL / (100/$STEPS) ))
+INACTIVE=$(( $STEPS - $ACTIVE ))
+
+# print
+test $VAL -gt 0 -a $VAL -le 100 \
 	&& echo $(draw $ACTIVE $A_SYM)$(draw $INACTIVE $I_SYM) \
-	|| echo $(draw $(( ($STEPS - $OT_LEN) / 2 )) $I_SYM)$OFF_TEXT$(draw $(( ($STEPS - $OT_LEN + 1) / 2 )) $I_SYM)
+	|| echo $(draw $(( ($STEPS - $T_LEN) / 2 )) $O_SYM)$TEXT$(draw $(( ($STEPS - $T_LEN + 1) / 2 )) $O_SYM)
