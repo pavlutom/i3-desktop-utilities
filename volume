@@ -29,4 +29,5 @@ fi
 ~/.scripts/pasink -v $VOL
 
 # notify
-dunstify -u 0 -t 1500 "Volume $VOL%"
+NOTIF_ID=13370	# arbitrary id (different for every kind of notification)
+dunstify -u 0 -t 1500 -r $NOTIF_ID "Volume $VOL%"

@@ -100,4 +100,5 @@ xrandr --output $M1 --brightness $FRAC_EXT
 xrandr --output $M2 --brightness $FRAC_EXT
 
 # notify
-dunstify -u 0 -t 1500 "Brightness $BR %"
+NOTIF_ID=42069	# arbitrary id (different for every kind of notification)
+dunstify -u 0 -t 1500 -r $NOTIF_ID "Brightness $BR %"
