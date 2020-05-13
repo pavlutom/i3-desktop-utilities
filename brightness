@@ -4,7 +4,7 @@
 zmodload zsh/mathfunc
 
 # define some constants
-HW_LOWEST=140;		KEY_LOWEST='lowest'
+HW_LOWEST=200;		KEY_LOWEST='lowest'
 HW_LOW=400;			KEY_LOW='low'
 HW_MEDIUM=1500;		KEY_MEDIUM='Medium'
 HW_HIGH=12000;		KEY_HIGH='HIGH'
