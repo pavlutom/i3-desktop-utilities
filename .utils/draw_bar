@@ -1,7 +1,6 @@
 #!/bin/zsh
 
 STEPS=20
-
 VAL=$1
 
-[[ $VAL -ne 0 ]] && seq -s "─" 0 $(( $VAL / (100/$STEPS) )) | sed 's/[0-9]//g' || echo 'muted'
+seq -s "─" 0 $(( $VAL / (100/$STEPS) )) | sed 's/[0-9]//g'
