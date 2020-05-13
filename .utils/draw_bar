@@ -16,6 +16,9 @@ draw() {
 	seq -s $SYMBOL 0 $COUNT | sed 's/[0-9]//g'
 }
 
+A_SYM="─"
+I_SYM="·"
+
 test $VAL -ne 0 \
-	&& echo $(draw $ACTIVE "─")$(draw $INACTIVE "·") \
-	|| echo $(draw $(( ($STEPS - $OT_LEN) / 2 )) "·")$OFF_TEXT$(draw $(( ($STEPS - $OT_LEN + 1) / 2 )) "·")
+	&& echo $(draw $ACTIVE $A_SYM)$(draw $INACTIVE $I_SYM) \
+	|| echo $(draw $(( ($STEPS - $OT_LEN) / 2 )) $I_SYM)$OFF_TEXT$(draw $(( ($STEPS - $OT_LEN + 1) / 2 )) $I_SYM)
