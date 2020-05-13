@@ -1,6 +1,17 @@
 #!/bin/zsh
 
 STEPS=20
+
 VAL=$1
 
-seq -s "─" 0 $(( $VAL / (100/$STEPS) )) | sed 's/[0-9]//g'
+ACTIVE=$(( $VAL / (100/$STEPS) ))
+INACTIVE=$(( $STEPS - $ACTIVE ))
+
+draw() {
+	COUNT=$1
+	SYMBOL=$2
+
+	seq -s $SYMBOL 0 $COUNT | sed 's/[0-9]//g'
+}
+
+echo $(draw $ACTIVE "─")$(draw $INACTIVE "·")
