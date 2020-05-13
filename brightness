@@ -95,7 +95,7 @@ else
 fi
 
 # external monitors (always using xrandr)
-FRAC_EXT=$(( $FRAC ** 0.25 ))
+test $BR -le 100 && FRAC_EXT=$(( $FRAC ** 0.25 )) || FRAC_EXT=$FRAC
 xrandr --output $M1 --brightness $FRAC_EXT
 xrandr --output $M2 --brightness $FRAC_EXT
 
