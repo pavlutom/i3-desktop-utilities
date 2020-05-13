@@ -3,6 +3,8 @@
 STEPS=20
 
 VAL=$1
+test $2 && OFF_TEXT=$2 || OFF_TEXT='off'
+OT_LEN=$(printf "%s" "$OFF_TEXT" | wc -m)
 
 ACTIVE=$(( $VAL / (100/$STEPS) ))
 INACTIVE=$(( $STEPS - $ACTIVE ))
@@ -14,4 +16,6 @@ draw() {
 	seq -s $SYMBOL 0 $COUNT | sed 's/[0-9]//g'
 }
 
-echo $(draw $ACTIVE "─")$(draw $INACTIVE "·")
+test $VAL -ne 0 \
+	&& echo $(draw $ACTIVE "─")$(draw $INACTIVE "·") \
+	|| echo $(draw $(( ($STEPS - $OT_LEN) / 2 )) "·")$OFF_TEXT$(draw $(( ($STEPS - $OT_LEN + 1) / 2 )) "·")
