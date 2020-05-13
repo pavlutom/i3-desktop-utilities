@@ -30,4 +30,4 @@ fi
 
 # notify
 NOTIF_ID=13370	# arbitrary id (different for every kind of notification)
-dunstify -u 0 -t 1500 -r $NOTIF_ID "Volume $VOL%"
+dunstify -u 0 -t 1500 -r $NOTIF_ID "Volume        $(~/.scripts/.utils/draw_bar $VOL)"
