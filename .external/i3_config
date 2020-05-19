@@ -1,0 +1,211 @@
+# It will not be overwritten, so edit it as you like.
+#
+# Should you change your keyboard layout some time, delete
+# this file and re-run i3-config-wizard(1).
+#
+
+# i3 config file (v4)
+#
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+
+set $mod Mod4
+
+set $percent_opts 'off\n20%\n40%\n60%\n80%\nMAX'
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:Roboto 9
+
+# disable titlebars
+new_window pixel 1
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec terminator
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# MENU
+
+# bin
+bindsym $mod+d exec dmenu_run -b -sb '#4b5162' -sf '#dce1ec'
+
+# scripts
+bindsym $mod+Shift+d exec ls ~/.scripts | dmenu -p 'scripts' -b -sb '#325472' -sf '#dce1ec' | xargs -I '$' $0 -c '~/.scripts/$'
+
+# display layout
+bindsym $mod+Shift+bracketleft exec ls ~/.scripts/.display | dmenu -p 'display setup' -b -sb '#ff8' -sf '#383c4a' | xargs -I '$' $0 -c '~/.scripts/.display/$'
+
+# system menu
+bindsym $mod+Shift+bracketright exec ls ~/.scripts/.system | dmenu -p 'system' -b -sb '#cc3333' -sf white | xargs -I '$' $0 -c '~/.scripts/.system/$'
+
+# brightness
+bindsym $mod+bracketleft exec ~/.scripts/brightness keys | dmenu -i -p 'screen brightness' -b -sb '#fb6' -sf '#383c4a' | xargs -I '$' $0 -c '~/.scripts/brightness $'
+
+# volume
+bindsym $mod+bracketright exec echo $percent_opts | dmenu -p 'volume' -b -sb '#6da' -sf '#383c4a' | xargs -I '$' $0 -c '~/.scripts/volume $'
+
+# SPECIAL KEYS
+
+# volume
+bindsym XF86AudioRaiseVolume exec ~/.scripts/volume inc
+bindsym XF86AudioLowerVolume exec ~/.scripts/volume dec
+bindsym XF86AudioMute exec ~/.scripts/volume 0
+
+# brightness
+bindsym XF86MonBrightnessUp exec ~/.scripts/brightness inc
+bindsym XF86MonBrightnessDown exec ~/.scripts/brightness dec
+
+# media
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# keyboard layout
+bindsym $mod+space exec ~/.scripts/kblayout
+
+# OTHER
+
+# shortcuts
+bindsym $mod+Shift+b exec chromium
+bindsym $mod+Shift+f exec terminator -e ranger
+bindsym $mod+Shift+s exec subl
+bindsym $mod+Shift+p exec flameshot gui
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# parent container
+bindsym $mod+a focus parent
+
+# child container
+#bindsym $mod+d focus child
+
+# resize window
+bindsym $mod+y resize shrink width 10 px or 10 ppt
+bindsym $mod+u resize grow height 10 px or 10 ppt
+bindsym $mod+i resize shrink height 10 px or 10 ppt
+bindsym $mod+o resize grow width 10 px or 10 ppt
+
+# split in vertical orientation
+bindsym $mod+v split toggle
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+x floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+x focus mode_toggle
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# Ebindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+bar {
+	font pango:Inconsolata for Powerline 10
+	position bottom
+	tray_output none
+	status_command ~/.local/bin/bumblebee-status \
+                -t monokai \
+                -m title spotify pomodoro cpu memory brightness pasink layout battery time date \
+                -p \
+                        time.format="%H:%M" \
+                        date.format="%d/%m/%Y" \
+                        memory.format="{percent:0.0f}%" \
+                        cpu.format="{:.0f}%" \
+                        pomodoro.notify='zsh /home/tomesh/.scripts/.utils/notification'
+        colors {
+                background #161713
+                focused_workspace  #66D9EF #66D9EF #272822
+                active_workspace   #75715E #75715E #F8F8F2
+                inactive_workspace #272822 #272822 #F8F8F2
+                urgent_workspace   #F92672 #F92672 #272822
+        }
+}
+
+# class                 border  bg      text    indicator
+client.focused          #66D9EF #66D9EF #272822 #A6E22E
+client.focused_inactive #75715E #75715E #F8F8F2 #75715E
+client.unfocused        #272822 #272822 #F8F8F2 #272822
+client.urgent           #F92672 #F92672 #272822 #F92672
+
+# displaylink
+exec --no-startup-id zsh ~/.scripts/setupxrandr
+
+# compton (desktop rendering)
+exec --no-startup-id compton --config ~/.config/compton.conf -b
+
+# wallpaper
+exec --no-startup-id ~/.scripts/feh_bg
