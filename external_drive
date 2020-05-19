@@ -1,0 +1,5 @@
+#!/bin/sh
+
+mountpoint -q ~/disks/external \
+	&& (udisksctl unmount -b /dev/sda1 && dunstify "External drive unmounted" || dunstify "Unmount FAILED")\
+	|| (udisksctl mount -b /dev/sda1; dunstify "External drive mounted" || dunstify "Mount FAILED")
