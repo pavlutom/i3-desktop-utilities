@@ -179,13 +179,15 @@ bar {
 	tray_output none
 	status_command ~/.local/bin/bumblebee-status \
                 -t monokai \
-                -m title spotify pomodoro cpu memory brightness pasink layout battery time date \
+                -m shortcut title spotify pomodoro cpu memory brightness pasink layout battery time date \
                 -p \
                         time.format="%H:%M" \
                         date.format="%d/%m/%Y" \
                         memory.format="{percent:0.0f}%" \
                         cpu.format="{:.0f}%" \
-                        pomodoro.notify='zsh /home/tomesh/.scripts/.utils/notification'
+                        pomodoro.notify='zsh /home/tomesh/.scripts/.utils/notification' \
+                        shortcut.cmds="chromium;thunar;subl;terminator" \
+                        shortcut.labels=";;;"
         colors {
                 background #161713
                 focused_workspace  #66D9EF #66D9EF #272822
