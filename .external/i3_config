@@ -192,8 +192,8 @@ bar {
                         memory.format="{percent:0.0f}%" \
                         cpu.format="{:.0f}%" \
                         pomodoro.notify='zsh /home/tomesh/.scripts/.utils/notification' \
-                        shortcut.cmds="chromium;thunar;subl;terminator" \
-                        shortcut.labels=";;;"
+                        shortcut.cmds="chromium;thunar;terminator" \
+                        shortcut.labels=";;"
         colors {
                 background #161713
                 focused_workspace  #66D9EF #66D9EF #272822
