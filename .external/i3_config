@@ -72,7 +72,7 @@ bindsym $mod+space exec ~/.scripts/kblayout
 
 # shortcuts
 bindsym $mod+Shift+b exec chromium
-bindsym $mod+Shift+f exec terminator -e ranger
+bindsym $mod+Shift+f exec thunar
 bindsym $mod+Shift+s exec subl
 bindsym $mod+Shift+p exec flameshot gui
 
