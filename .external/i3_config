@@ -31,22 +31,22 @@ bindsym $mod+Shift+q kill
 # MENU
 
 # bin
-bindsym $mod+d exec dmenu_run -b -sb '#4b5162' -sf '#dce1ec'
+bindsym $mod+d exec dmenu_run -b -sb '#75715E' -sf '#F8F8F2'
 
 # scripts
-bindsym $mod+Shift+d exec ls ~/.scripts | dmenu -p 'scripts' -b -sb '#325472' -sf '#dce1ec' | xargs -I '$' $0 -c '~/.scripts/$'
+bindsym $mod+Shift+d exec ls ~/.scripts | dmenu -p 'scripts' -b -sb '#66D9EF' -sf '#272822' | xargs -I '$' $0 -c '~/.scripts/$'
 
 # display layout
-bindsym $mod+Shift+bracketleft exec ls ~/.scripts/.display | dmenu -p 'display setup' -b -sb '#ff8' -sf '#383c4a' | xargs -I '$' $0 -c '~/.scripts/.display/$'
+bindsym $mod+Shift+bracketleft exec ls ~/.scripts/.display | dmenu -p 'display setup' -b -sb '#E6DB74' -sf '#272822' | xargs -I '$' $0 -c '~/.scripts/.display/$'
 
 # system menu
-bindsym $mod+Shift+bracketright exec ls ~/.scripts/.system | dmenu -p 'system' -b -sb '#cc3333' -sf white | xargs -I '$' $0 -c '~/.scripts/.system/$'
+bindsym $mod+Shift+bracketright exec ls ~/.scripts/.system | dmenu -p 'system' -b -sb '#F92672' -sf '#F8F8F2' | xargs -I '$' $0 -c '~/.scripts/.system/$'
 
 # brightness
-bindsym $mod+bracketleft exec ~/.scripts/brightness keys | dmenu -i -p 'screen brightness' -b -sb '#fb6' -sf '#383c4a' | xargs -I '$' $0 -c '~/.scripts/brightness $'
+bindsym $mod+bracketleft exec ~/.scripts/brightness keys | dmenu -i -p 'screen brightness' -b -sb '#FD971F' -sf '#272822' | xargs -I '$' $0 -c '~/.scripts/brightness $'
 
 # volume
-bindsym $mod+bracketright exec echo $percent_opts | dmenu -p 'volume' -b -sb '#6da' -sf '#383c4a' | xargs -I '$' $0 -c '~/.scripts/volume $'
+bindsym $mod+bracketright exec echo $percent_opts | dmenu -p 'volume' -b -sb '#A6E22E' -sf '#272822' | xargs -I '$' $0 -c '~/.scripts/volume $'
 
 # SPECIAL KEYS
 
