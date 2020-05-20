@@ -30,6 +30,7 @@ bindsym $mod+Return exec terminator
 
 # kill focused window
 bindsym $mod+Shift+q kill
+bindsym --whole-window $mod+Shift+button3 kill
 
 # MENU
 
