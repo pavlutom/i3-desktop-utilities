@@ -107,7 +107,7 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+a focus parent
 
 # child container
-#bindsym $mod+d focus child
+bindsym $mod+Shift+a focus child
 
 # resize window
 bindsym $mod+y resize shrink width 10 px or 10 ppt
