@@ -19,6 +19,9 @@ font pango:Roboto 9
 # disable titlebars
 new_window pixel 1
 
+# smart borders
+hide_edge_borders smart
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
