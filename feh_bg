@@ -1,2 +1,5 @@
 #!/bin/sh
-feh --bg-fill --no-xinerama '/home/tomesh/Pictures/wallpapers/mountains.png' 
+
+test $1 -a $1 = '--single' \
+	&& feh --bg-center '/home/tomesh/Pictures/wallpapers/mountains.png' \
+	|| feh --bg-fill --no-xinerama '/home/tomesh/Pictures/wallpapers/mountains.png'

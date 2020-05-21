@@ -6,4 +6,4 @@ xrandr --output $M1 --mode 1680x1050 --above $M0
 xrandr --output $M2 --off
 
 sh ~/.scripts/compton_restart
-sh ~/.scripts/feh_bg
+sh ~/.scripts/feh_bg --single
