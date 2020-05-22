@@ -76,6 +76,7 @@ bindsym $mod+space exec ~/.scripts/kblayout
 
 # shortcuts
 bindsym $mod+Shift+b exec chromium
+bindsym $mod+Shift+Mod1+b exec chromium --incognito
 bindsym $mod+Shift+f exec thunar
 bindsym $mod+Shift+s exec subl
 bindsym $mod+Shift+p exec flameshot gui
