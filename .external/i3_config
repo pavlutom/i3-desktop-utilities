@@ -28,9 +28,15 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec terminator
 
+# scratchpad
+exec --no-startup-id terminator -l KJ -T "Scratchpad"
+for_window [instance="terminator" title="^Scratchpad$"] floating enable, move scratchpad, scratchpad show;
+for_window [instance="terminator" title="^Scratchpad$"] resize grow left 300, resize grow right 300, resize grow down 150, resize grow up 100, move scratchpad;
+bindsym $mod+Shift+Return [instance="terminator" title="^Scratchpad$"] scratchpad show
+
 # kill focused window
-bindsym $mod+Shift+q kill
-bindsym --whole-window $mod+Shift+button3 kill
+bindsym $mod+Shift+q [con_id="__focused__" title="^(?!Scratchpad).*$"] kill
+bindsym --whole-window $mod+Shift+button3 [con_id="__focused__" title="^(?!Scratchpad).*$"] kill
 
 # MENU
 
