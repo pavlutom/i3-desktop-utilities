@@ -196,7 +196,7 @@ bar {
 	tray_output none
 	status_command ~/.local/bin/bumblebee-status \
                 -t monokai \
-                -m shortcut title spotify pomodoro cpu memory brightness pasink layout battery time date \
+                -m shortcut title spotify pomodoro memory cpu sensors2 cpu2 brightness pasink layout battery time date \
                 -p \
                         time.format="%H:%M" \
                         date.format="%d/%m/%Y" \
@@ -204,7 +204,11 @@ bar {
                         cpu.format="{:.0f}%" \
                         pomodoro.notify='zsh /home/tomesh/.scripts/.utils/notification' \
                         shortcut.cmds="chromium;thunar;terminator" \
-                        shortcut.labels=";;"
+                        shortcut.labels=";;" \
+                        cpu2.layout="cpu2.temp" \
+                        cpu2.temp_pattern="temp2_input: " \
+                        sensors2.showcpu=true \
+                        sensors2.showtemp=false
         colors {
                 background #161713
                 focused_workspace  #66D9EF #66D9EF #272822
