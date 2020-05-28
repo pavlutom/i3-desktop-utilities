@@ -4,4 +4,4 @@ source ~/.scripts/.display/.names
 
 xrandr --setprovideroutputsource 1 0
 xrandr --addmode $M2 1920x1080
-xrandr --output $M2 --mode 1920x1080 --right-of $M1
+xrandr --output $M2 --mode 1920x1080

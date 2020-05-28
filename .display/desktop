@@ -4,10 +4,15 @@ xrandr --setprovideroutputsource 1 0
 
 source ~/.scripts/.display/.names
 
-xrandr --output $M1 --mode 1920x1080 --right-of $M0
+# laptop screen
+xrandr --output $M0 --mode 1920x1080 --pos 0x360
 
+# big QHD middle monitor on HDMI
+xrandr --output $M1 --mode 2560x1440 --primary --pos 1920x0
+
+# full HD right monitor on DisplayLink
 xrandr --addmode $M2 1920x1080
-xrandr --output $M2 --mode 1920x1080 --right-of $M1
+xrandr --output $M2 --mode 1920x1080 --pos 4480x360
 
 sh ~/.scripts/compton_restart
 sh ~/.scripts/feh_bg

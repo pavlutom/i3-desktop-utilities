@@ -224,8 +224,9 @@ client.focused_inactive #75715E #75715E #F8F8F2 #75715E
 client.unfocused        #272822 #272822 #F8F8F2 #272822
 client.urgent           #F92672 #F92672 #272822 #F92672
 
-# displaylink
+# displays
 exec --no-startup-id zsh ~/.scripts/setupxrandr
+exec --no-startup-id zsh ~/.scripts/.display/desktop
 
 # compton (desktop rendering)
 exec --no-startup-id compton --config ~/.config/compton.conf -b
