@@ -226,7 +226,6 @@ client.urgent           #F92672 #F92672 #272822 #F92672
 
 # displays
 exec --no-startup-id zsh ~/.scripts/setupxrandr
-exec --no-startup-id zsh ~/.scripts/.display/desktop
 
 # compton (desktop rendering)
 exec --no-startup-id compton --config ~/.config/compton.conf -b
