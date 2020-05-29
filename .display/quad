@@ -2,11 +2,11 @@
 
 source ~/.scripts/.display/.names
 
-xrandr --output $M_LAPTOP --off
 
 xrandr --output $M_DL_LEFT --mode 1920x1080
 xrandr --output $M_HDMI --mode 2560x1440 --pos 1920x0 --primary
 xrandr --output $M_DL_RIGHT --mode 1920x1080 --pos 4480x360
+xrandr --output $M_LAPTOP --mode 1920x1080 --pos 2240x1440
 
 # position of the first display is forced to 0x0, so it has to be set here
 xrandr --output $M_DL_LEFT --pos 1920x1080 --pos 0x360

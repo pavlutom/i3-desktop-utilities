@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+arandr 
+
+sh ~/.scripts/compton_restart
+sh ~/.scripts/feh_bg --single

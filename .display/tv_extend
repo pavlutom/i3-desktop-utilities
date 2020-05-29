@@ -2,11 +2,11 @@
 
 source ~/.scripts/.display/.names
 
-xrandr --output $M_HDMI --off
 xrandr --output $M_DL_LEFT --off
 xrandr --output $M_DL_RIGHT --off
 
-xrandr --output $M_LAPTOP --mode 1920x1080 --pos 0x0
+xrandr --output $M_HDMI --mode 1920x1080 --pos 0x0
+xrandr --output $M_LAPTOP --mode 1920x1080 --pos 0x1080
 
 sh ~/.scripts/compton_restart
 sh ~/.scripts/feh_bg --single
