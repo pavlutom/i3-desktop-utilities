@@ -8,7 +8,8 @@ opacity-rule = [
 	"85:class_g *?= 'blueman-manager'",
 	"95:class_g *?= 'jetbrains-pycharm'",
 	"85:class_g *?= 'slack'",
-	"75:class_g *?= 'i3bar'"
+	"75:class_g *?= 'i3bar'",
+	"85:class_g *?= 'thunderbird'"
 ];
 
 #blur-background = true;
