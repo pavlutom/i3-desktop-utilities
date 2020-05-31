@@ -84,20 +84,21 @@ fi
 # if we can use laptop display backlight
 if [[ $BR -ge 0 && $BR -le 100 ]]; then
 	# set xrandr to 100%
-	xrandr --output $M0 --brightness 1
+	xrandr --output $M_LAPTOP --brightness 1
 	# use hardware
 	brightnessctl $DEV set $HW_BR
 else
 	# set hardware to 100%
 	brightnessctl $DEV set $HW_MAX
 	# use xrandr
-	xrandr --output $M0 --brightness $FRAC
+	xrandr --output $M_LAPTOP --brightness $FRAC
 fi
 
 # external monitors (always using xrandr)
 test $BR -le 100 && FRAC_EXT=$(( $FRAC ** 0.25 )) || FRAC_EXT=$FRAC
-xrandr --output $M1 --brightness $FRAC_EXT
-xrandr --output $M2 --brightness $FRAC_EXT
+xrandr --output $M_HDMI --brightness $FRAC_EXT
+xrandr --output $M_DL_LEFT --brightness $FRAC_EXT
+xrandr --output $M_DL_RIGHT --brightness $FRAC_EXT
 
 # notify
 NOTIF_ID=42069	# arbitrary id (different for every kind of notification)
