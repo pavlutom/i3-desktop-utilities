@@ -1,0 +1,18 @@
+backend = "glx";
+
+# Opacity
+opacity-rule = [
+	"85:class_g *?= 'thunar'",
+	"85:class_g *?= 'spotify'",
+	"85:class_g *?= 'wicd-client.py'",
+	"85:class_g *?= 'blueman-manager'",
+	"95:class_g *?= 'jetbrains-pycharm'",
+	"75:class_g *?= 'i3bar'"
+];
+
+#blur-background = true;
+#blur-kern = "7x7box";
+
+# Fading
+#fading = true;
+#fading-delta = 0.01;
