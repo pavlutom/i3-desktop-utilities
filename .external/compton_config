@@ -6,10 +6,11 @@ opacity-rule = [
 	"85:class_g *?= 'spotify'",
 	"85:class_g *?= 'wicd-client.py'",
 	"85:class_g *?= 'blueman-manager'",
-	"95:class_g *?= 'jetbrains-pycharm'",
+	"90:class_g *?= 'jetbrains-pycharm'",
 	"85:class_g *?= 'slack'",
 	"75:class_g *?= 'i3bar'",
-	"85:class_g *?= 'thunderbird'"
+	"85:class_g *?= 'thunderbird'",
+	"90:class_g *?= 'gitkraken'"
 ];
 
 #blur-background = true;
