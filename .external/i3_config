@@ -39,22 +39,22 @@ bindsym --whole-window $mod+Shift+button3 [con_id="__focused__" title="^(?!Scrat
 # MENU
 
 # bin
-bindsym $mod+d exec dmenu_run -b -sb '#75715E' -sf '#F8F8F2'
+bindsym $mod+d exec dmenu_run -sb '#75715E' -sf '#F8F8F2'
 
 # scripts
-bindsym $mod+Shift+d exec ls ~/.scripts | dmenu -p 'scripts' -b -sb '#66D9EF' -sf '#272822' | xargs -I '$' $0 -c '~/.scripts/$'
+bindsym $mod+Shift+d exec ls ~/.scripts | dmenu -p 'scripts' -sb '#66D9EF' -sf '#272822' | xargs -I '$' $0 -c '~/.scripts/$'
 
 # display layout
-bindsym $mod+Shift+bracketleft exec ls ~/.scripts/.display | dmenu -p 'display setup' -b -sb '#E6DB74' -sf '#272822' | xargs -I '$' $0 -c '~/.scripts/.display/$'
+bindsym $mod+Shift+bracketleft exec ls ~/.scripts/.display | dmenu -p 'display setup' -sb '#E6DB74' -sf '#272822' | xargs -I '$' $0 -c '~/.scripts/.display/$'
 
 # system menu
-bindsym $mod+Shift+bracketright exec ls ~/.scripts/.system | dmenu -p 'system' -b -sb '#F92672' -sf '#272822' | xargs -I '$' $0 -c '~/.scripts/.system/$'
+bindsym $mod+Shift+bracketright exec ls ~/.scripts/.system | dmenu -p 'system' -sb '#F92672' -sf '#272822' | xargs -I '$' $0 -c '~/.scripts/.system/$'
 
 # brightness
-bindsym $mod+bracketleft exec ~/.scripts/brightness keys | dmenu -i -p 'screen brightness' -b -sb '#FD971F' -sf '#272822' | xargs -I '$' $0 -c '~/.scripts/brightness $'
+bindsym $mod+bracketleft exec ~/.scripts/brightness keys | dmenu -i -p 'screen brightness' -sb '#FD971F' -sf '#272822' | xargs -I '$' $0 -c '~/.scripts/brightness $'
 
 # volume
-bindsym $mod+bracketright exec echo $percent_opts | dmenu -p 'volume' -b -sb '#A6E22E' -sf '#272822' | xargs -I '$' $0 -c '~/.scripts/volume $'
+bindsym $mod+bracketright exec echo 'off\n20%\n40%\n60%\n80%\nMAX' | dmenu -i -p 'volume' -sb '#A6E22E' -sf '#272822' | xargs -I '$' $0 -c '~/.scripts/volume $'
 
 # SPECIAL KEYS
 
