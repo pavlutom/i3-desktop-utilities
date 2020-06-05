@@ -22,6 +22,10 @@ new_window pixel 1
 # smart borders
 hide_edge_borders smart
 
+# gaps
+gaps inner 10
+gaps outer 0
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 

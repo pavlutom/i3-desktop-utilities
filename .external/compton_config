@@ -8,7 +8,6 @@ opacity-rule = [
 	"85:class_g *?= 'blueman-manager'",
 	"90:class_g *?= 'jetbrains-pycharm'",
 	"85:class_g *?= 'slack'",
-	#"75:class_g *?= 'i3bar'",
 	"85:class_g *?= 'thunderbird'",
 	"90:class_g *?= 'gitkraken'",
 	"90:class_g *?= 'sublime_text'",
@@ -22,12 +21,4 @@ clear-shadow = true;
 shadow-radius = 10;
 shadow-offset-x = -10;
 shadow-offset-y = -10;
-shadow-opacity = 0.5;
-#shadow-exclude = ['!I3_FLOATING_WINDOW@:c'];
-
-#blur-background = true;
-#blur-kern = "7x7box";
-
-# Fading
-#fading = true;
-#fading-delta = 0.01;
+xinerama-shadow-crop = true;
