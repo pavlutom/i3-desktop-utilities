@@ -186,7 +186,7 @@ bindsym $mod+Shift+c reload
 
 bar {
 	font pango:Inconsolata for Powerline 9
-	position bottom
+	position top
 	tray_output none
 	status_command ~/.local/bin/bumblebee-status \
                 -t monokai \
