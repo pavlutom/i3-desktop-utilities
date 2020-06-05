@@ -2,17 +2,17 @@ backend = "glx";
 
 # Opacity
 opacity-rule = [
-	"85:class_g *?= 'thunar'",
-	"85:class_g *?= 'spotify'",
-	"85:class_g *?= 'wicd-client.py'",
-	"85:class_g *?= 'blueman-manager'",
+	"90:class_g *?= 'thunar'",
+	"90:class_g *?= 'spotify'",
+	"90:class_g *?= 'wicd-client.py'",
+	"90:class_g *?= 'blueman-manager'",
 	"90:class_g *?= 'jetbrains-pycharm'",
-	"85:class_g *?= 'slack'",
-	"85:class_g *?= 'thunderbird'",
+	"90:class_g *?= 'slack'",
+	"90:class_g *?= 'thunderbird'",
 	"90:class_g *?= 'gitkraken'",
 	"90:class_g *?= 'sublime_text'",
 	"90:class_g *?= 'code'",
-	"85:class_g *?= 'caprine'"
+	"90:class_g *?= 'caprine'"
 ];
 
 # Shadow
