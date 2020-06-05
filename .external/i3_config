@@ -10,11 +10,9 @@
 
 set $mod Mod4
 
-set $percent_opts 'off\n20%\n40%\n60%\n80%\nMAX'
-
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Roboto 9
+font pango:Meslo LG S 9
 
 # disable titlebars
 new_window pixel 1
@@ -38,23 +36,25 @@ bindsym --whole-window $mod+Shift+button3 [con_id="__focused__" title="^(?!Scrat
 
 # MENU
 
+set $menu_font 'Meslo LG S-12'
+
 # bin
-bindsym $mod+d exec dmenu_run -sb '#75715E' -sf '#F8F8F2'
+bindsym $mod+d exec dmenu_run -sb '#75715E' -sf '#F8F8F2' -fn $menu_font
 
 # scripts
-bindsym $mod+Shift+d exec ls ~/.scripts | dmenu -p 'scripts' -sb '#66D9EF' -sf '#272822' | xargs -I '$' $0 -c '~/.scripts/$'
+bindsym $mod+Shift+d exec ls ~/.scripts | dmenu -p 'scripts' -sb '#66D9EF' -sf '#272822' -fn $menu_font | xargs -I '$' $0 -c '~/.scripts/$'
 
 # display layout
-bindsym $mod+Shift+bracketleft exec ls ~/.scripts/.display | dmenu -p 'display setup' -sb '#E6DB74' -sf '#272822' | xargs -I '$' $0 -c '~/.scripts/.display/$'
+bindsym $mod+Shift+bracketleft exec ls ~/.scripts/.display | dmenu -p 'display setup' -sb '#E6DB74' -sf '#272822' -fn $menu_font | xargs -I '$' $0 -c '~/.scripts/.display/$'
 
 # system menu
-bindsym $mod+Shift+bracketright exec ls ~/.scripts/.system | dmenu -p 'system' -sb '#F92672' -sf '#272822' | xargs -I '$' $0 -c '~/.scripts/.system/$'
+bindsym $mod+Shift+bracketright exec ls ~/.scripts/.system | dmenu -p 'system' -sb '#F92672' -sf '#272822' -fn $menu_font | xargs -I '$' $0 -c '~/.scripts/.system/$'
 
 # brightness
-bindsym $mod+bracketleft exec ~/.scripts/brightness keys | dmenu -i -p 'screen brightness' -sb '#FD971F' -sf '#272822' | xargs -I '$' $0 -c '~/.scripts/brightness $'
+bindsym $mod+bracketleft exec ~/.scripts/brightness keys | dmenu -i -p 'screen brightness' -sb '#FD971F' -sf '#272822' -fn $menu_font | xargs -I '$' $0 -c '~/.scripts/brightness $'
 
 # volume
-bindsym $mod+bracketright exec echo 'off\n20%\n40%\n60%\n80%\nMAX' | dmenu -i -p 'volume' -sb '#A6E22E' -sf '#272822' | xargs -I '$' $0 -c '~/.scripts/volume $'
+bindsym $mod+bracketright exec echo 'off\n20%\n40%\n60%\n80%\nMAX' | dmenu -i -p 'volume' -sb '#A6E22E' -sf '#272822' -fn $menu_font | xargs -I '$' $0 -c '~/.scripts/volume $'
 
 # SPECIAL KEYS
 
@@ -189,7 +189,7 @@ bindsym $mod+Shift+c reload
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 bar {
-	font pango:Inconsolata for Powerline 9
+	font pango:Meslo LG S for Powerline 9
 	position top
 	tray_output none
 	status_command ~/.local/bin/bumblebee-status \
@@ -235,7 +235,7 @@ exec --no-startup-id ~/.scripts/feh_bg
 exec --no-startup-id numlockx on
 
 # scratchpad
-exec --no-startup-id terminator -p scratchpad -l KJ -T "Scratchpad"
+exec --no-startup-id terminator -l KJ -T "Scratchpad"
 for_window [instance="terminator" title="^Scratchpad$"] floating enable, move scratchpad, scratchpad show;
 for_window [instance="terminator" title="^Scratchpad$"] resize grow left 300, resize grow right 300, resize grow down 150, resize grow up 100, move scratchpad;
 bindsym $mod+Shift+Return [instance="terminator" title="^Scratchpad$"] scratchpad show
