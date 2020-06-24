@@ -82,8 +82,8 @@ bindsym $mod+space exec ~/.scripts/kblayout
 # OTHER
 
 # shortcuts
-bindsym $mod+Shift+b exec chromium
-bindsym $mod+Shift+Mod1+b exec chromium --incognito
+bindsym $mod+Shift+b exec google-chrome
+bindsym $mod+Shift+Mod1+b exec google-chrome --incognito
 bindsym $mod+Shift+f exec thunar
 bindsym $mod+Shift+s exec subl
 bindsym $mod+Shift+p exec flameshot gui
@@ -204,7 +204,7 @@ bar {
                         memory.format="{percent:0.0f}%" \
                         cpu.format="{:.0f}%" \
                         pomodoro.notify='zsh /home/tomesh/.scripts/.utils/notification' \
-                        shortcut.cmds="chromium;thunar;terminator" \
+                        shortcut.cmds="google-chrome;thunar;terminator" \
                         shortcut.labels=";;" \
                         cpu2.layout="cpu2.temp" \
                         cpu2.temp_pattern="temp2_input: " \
