@@ -1,6 +1,6 @@
 #!/bin/sh
 
-WP_PATH='/home/tomesh/Pictures/wallpapers/windows/Wallpaper/Theme1/img3.jpg'
+WP_PATH='/home/tomesh/Pictures/wallpapers/bigsur/img1.jpg'
 
 test $1 -a $1 = '--single' \
 	&& feh --bg-fill $WP_PATH \
