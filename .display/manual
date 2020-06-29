@@ -3,4 +3,4 @@
 arandr 
 
 sh ~/.scripts/compton_restart
-sh ~/.scripts/feh_bg --single
+zsh ~/.scripts/feh_bg -s -t

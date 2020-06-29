@@ -9,4 +9,4 @@ xrandr --output $M_HDMI --mode 1680x1050 --pos 120x0
 xrandr --output $M_LAPTOP --mode 1920x1080 --pos 0x1050
 
 sh ~/.scripts/compton_restart
-sh ~/.scripts/feh_bg --single
+zsh ~/.scripts/feh_bg -s -t

@@ -232,7 +232,7 @@ exec --no-startup-id zsh ~/.scripts/setupxrandr
 exec --no-startup-id compton --config ~/.config/compton.conf -b
 
 # wallpaper
-exec --no-startup-id ~/.scripts/feh_bg
+exec --no-startup-id ~/.scripts/feh_bg -s -t
 
 # numlock
 exec --no-startup-id numlockx on

@@ -9,4 +9,4 @@ xrandr --output $M_DL_RIGHT --off
 xrandr --output $M_LAPTOP --mode 1920x1080 --pos 0x0
 
 sh ~/.scripts/compton_restart
-sh ~/.scripts/feh_bg --single
+zsh ~/.scripts/feh_bg -s -t
