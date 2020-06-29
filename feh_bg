@@ -1,7 +1,39 @@
-#!/bin/sh
+#!/bin/zsh
 
-WP_PATH='/home/tomesh/Pictures/wallpapers/bigsur/img1.jpg'
+WP_FOLDER_PATH="/home/tomesh/Pictures/wallpapers/bigsur"
+WP_PATH="$WP_FOLDER_PATH/img5.jpg"
 
-test $1 -a $1 = '--single' \
-	&& feh --bg-fill $WP_PATH \
-	|| feh --bg-fill --no-xinerama $WP_PATH
+XINERAMA="--no-xinerama"
+
+
+while getopts "st" opt; do
+	case "$opt" in
+		s)	# single-monitor wallpapers
+			XINERAMA=""
+			;;
+		t)	# set background depending on current time
+			CURRENT_TIME=$(date +%k)
+			if [[ CURRENT_TIME -lt 4 ]]; then
+				WP_PATH="$WP_FOLDER_PATH/img1.jpg"
+			elif [[ CURRENT_TIME -lt 7 ]]; then
+				WP_PATH="$WP_FOLDER_PATH/img2.jpg"
+			elif [[ CURRENT_TIME -lt 9 ]]; then
+				WP_PATH="$WP_FOLDER_PATH/img3.jpg"
+			elif [[ CURRENT_TIME -lt 14 ]]; then
+				WP_PATH="$WP_FOLDER_PATH/img4.jpg"
+			elif [[ CURRENT_TIME -lt 16 ]]; then
+				WP_PATH="$WP_FOLDER_PATH/img5.jpg"
+			elif [[ CURRENT_TIME -lt 19 ]]; then
+				WP_PATH="$WP_FOLDER_PATH/img6.jpg"
+			elif [[ CURRENT_TIME -lt 20 ]]; then
+				WP_PATH="$WP_FOLDER_PATH/img7.jpg"
+			elif [[ CURRENT_TIME -lt 21 ]]; then
+				WP_PATH="$WP_FOLDER_PATH/img8.jpg"
+			else
+				WP_PATH="$WP_FOLDER_PATH/img1.jpg"
+			fi
+			;;
+	esac
+done
+
+feh --bg-fill $XINERAMA $WP_PATH
