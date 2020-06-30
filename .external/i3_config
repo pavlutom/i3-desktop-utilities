@@ -228,7 +228,7 @@ client.unfocused        #161713   #161713   #F8F8F2   #161713
 client.urgent           #F92672   #F92672   #272822   #F92672
 
 # displays
-exec --no-startup-id zsh ~/.scripts/setupxrandr
+exec --no-startup-id zsh ~/.scripts/setupxrandr && sh ~/.scripts/.utils/desktopdetect
 
 # compton (desktop rendering)
 exec --no-startup-id compton --config ~/.config/compton.conf -b
