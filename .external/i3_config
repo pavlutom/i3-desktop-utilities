@@ -195,8 +195,9 @@ bar {
 	font pango:Meslo LG S for Powerline 9
 	position top
 	tray_output none
+        i3bar_command i3bar -t
 	status_command ~/.local/bin/bumblebee-status \
-                -t monokai \
+                -t transparent \
                 -m shortcut title spotify pomodoro memory cpu sensors2 cpu2 brightness pasink layout battery time date \
                 -p \
                         time.format="%H:%M" \
@@ -211,19 +212,20 @@ bar {
                         sensors2.showcpu=true \
                         sensors2.showtemp=false
         colors {
-                background #161713
-                focused_workspace  #66D9EF #66D9EF #272822
-                active_workspace   #75715E #75715E #F8F8F2
-                inactive_workspace #272822 #272822 #F8F8F2
-                urgent_workspace   #F92672 #F92672 #272822
+                background #16171355
+                # class            border    bg        text
+                focused_workspace  #F8F8F299 #F8F8F299 #16171399
+                active_workspace   #88888577 #88888577 #F8F8F2
+                inactive_workspace #16171355 #16171355 #F8F8F2
+                urgent_workspace   #F92672   #F92672   #272822
         }
 }
 
-# class                 border  bg      text    indicator
-client.focused          #66D9EF #66D9EF #272822 #A6E22E
-client.focused_inactive #75715E #75715E #F8F8F2 #75715E
-client.unfocused        #272822 #272822 #F8F8F2 #272822
-client.urgent           #F92672 #F92672 #272822 #F92672
+# class                 border    bg        text      indicator
+client.focused          #AAAAA7   #AAAAA7   #161713   #F8F8F2
+client.focused_inactive #666665   #666665   #161713   #666665
+client.unfocused        #161713   #161713   #F8F8F2   #161713
+client.urgent           #F92672   #F92672   #272822   #F92672
 
 # displays
 exec --no-startup-id zsh ~/.scripts/setupxrandr
