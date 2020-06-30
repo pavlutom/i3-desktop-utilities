@@ -1,0 +1,5 @@
+#!/bin/sh
+
+sed -i 's/DVI-I-1-1/DVI-I-tmp/g;s/DVI-I-2-2/DVI-I-1-1/g;s/DVI-I-tmp/DVI-I-2-2/g' ~/.scripts/.display/.names
+
+eval $(cat ~/.scripts/.display/.last)

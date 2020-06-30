@@ -10,3 +10,5 @@ xrandr --output $M_HDMI --mode 1920x1080 --same-as $M_LAPTOP
 
 sh ~/.scripts/compton_restart
 zsh ~/.scripts/feh_bg -s -t
+
+echo "$0" > ~/.scripts/.display/.last

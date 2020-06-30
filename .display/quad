@@ -9,3 +9,5 @@ xrandr --output $M_LAPTOP --mode 1920x1080 --pos 2240x1440
 
 sh ~/.scripts/compton_restart
 zsh ~/.scripts/feh_bg -s -t
+
+echo "$0" > ~/.scripts/.display/.last
