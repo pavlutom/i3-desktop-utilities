@@ -2,19 +2,20 @@ backend = "glx";
 
 # Opacity
 opacity-rule = [
-	"90:class_g *?= 'thunar'",
-	"90:class_g *?= 'spotify'",
-	"90:class_g *?= 'wicd-client.py'",
-	"90:class_g *?= 'blueman-manager'",
-	"90:class_g *?= 'jetbrains-pycharm'",
-	"90:class_g *?= 'jetbrains-clion'",
-	"90:class_g *?= 'jetbrains-idea'",
-	"90:class_g *?= 'slack'",
-	"90:class_g *?= 'thunderbird'",
-	"90:class_g *?= 'gitkraken'",
-	"90:class_g *?= 'sublime_text'",
-	"90:class_g *?= 'code'",
-	"90:class_g *?= 'caprine'"
+	"95:class_g *?= 'thunar'",
+	"95:class_g *?= 'spotify'",
+	"95:class_g *?= 'wicd-client.py'",
+	"95:class_g *?= 'blueman-manager'",
+	"95:class_g *?= 'jetbrains-pycharm'",
+	"95:class_g *?= 'jetbrains-clion'",
+	"95:class_g *?= 'jetbrains-idea'",
+	"95:class_g *?= 'slack'",
+	"95:class_g *?= 'thunderbird'",
+	"95:class_g *?= 'gitkraken'",
+	"95:class_g *?= 'sublime_text'",
+	"95:class_g *?= 'code'",
+	"95:class_g *?= 'caprine'",
+	"95:class_g *?= 'minetime'"
 ];
 
 # Shadow

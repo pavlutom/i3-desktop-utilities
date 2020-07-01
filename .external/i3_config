@@ -212,8 +212,8 @@ bar {
                         memory.format="{percent:0.0f}%" \
                         cpu.format="{:.0f}%" \
                         pomodoro.notify='zsh /home/tomesh/.scripts/.utils/notification' \
-                        shortcut.cmds="google-chrome;thunar;terminator" \
-                        shortcut.labels=";;" \
+                        shortcut.cmds="google-chrome;minetime;thunar;terminator" \
+                        shortcut.labels=";;;" \
                         cpu2.layout="cpu2.temp" \
                         cpu2.temp_pattern="temp2_input: " \
                         sensors2.showcpu=true \
