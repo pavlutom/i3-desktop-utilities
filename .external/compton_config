@@ -14,8 +14,7 @@ opacity-rule = [
 	"95:class_g *?= 'gitkraken'",
 	"95:class_g *?= 'sublime_text'",
 	"95:class_g *?= 'code'",
-	"95:class_g *?= 'caprine'",
-	"95:class_g *?= 'minetime'"
+	"95:class_g *?= 'caprine'"
 ];
 
 # Shadow
