@@ -26,5 +26,6 @@ shadow-offset-y = -10;
 xinerama-shadow-crop = true;
 shadow-exclude = [
 	"class_g *?= 'dmenu'",
+	"class_g *?= 'i3-frame'",
 	"class_g *?= 'i3bar'"
 ];
