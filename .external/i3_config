@@ -205,7 +205,7 @@ bar {
         i3bar_command i3bar -t
 	status_command ~/.local/bin/bumblebee-status \
                 -t transparent \
-                -m shortcut title spotify pomodoro memory cpu sensors2 cpu2 disk brightness pasink layout battery time date \
+                -m shortcut title spotify pomodoro memory cpu sensors2 cpu2 disk:dshare disk:droot brightness pasink layout battery time date \
                 -p \
                         time.format="%H:%M" \
                         date.format="%d/%m/%Y" \
@@ -218,8 +218,10 @@ bar {
                         cpu2.temp_pattern="temp2_input: " \
                         sensors2.showcpu=true \
                         sensors2.showtemp=false \
-                        disk.path=/ \
-                        disk.format='{used}/{size} - {percent:.0f}%'
+                        droot.path=/ \
+                        droot.format='{used}/{size} [{percent:.0f}%]'\
+                        dshare.path=/home/tomesh/disks/share/ \
+                        dshare.format='{used}/{size} [{percent:.0f}%]'
         colors {
                 background #16171355
                 # class            border    bg        text
