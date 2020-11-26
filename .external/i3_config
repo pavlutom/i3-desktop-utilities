@@ -24,7 +24,7 @@ new_window pixel 1
 hide_edge_borders smart
 
 # gaps
-gaps inner 10
+gaps inner 7
 gaps outer 0
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -125,14 +125,14 @@ bindsym $mod+i resize shrink height 10 px or 10 ppt
 bindsym $mod+o resize grow width 10 px or 10 ppt
 
 # outer gaps
-bindsym $mod+plus gaps outer current plus 10
-bindsym $mod+minus gaps outer current minus 10
+bindsym $mod+plus gaps outer current plus 7
+bindsym $mod+minus gaps outer current minus 7
 bindsym $mod+0 gaps outer current set 0
 
 # inner gaps
-bindsym $mod+Shift+plus gaps inner current plus 10
-bindsym $mod+Shift+minus gaps inner current minus 10
-bindsym $mod+Shift+0 gaps inner current set 10
+bindsym $mod+Shift+plus gaps inner current plus 7
+bindsym $mod+Shift+minus gaps inner current minus 7
+bindsym $mod+Shift+0 gaps inner current set 7
 
 # split in vertical orientation
 bindsym $mod+v split toggle
