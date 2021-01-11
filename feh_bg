@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 
-# This script is run by cron. To change the way how it is run, run command `crontab -e`.
+# This script is run by cron. To change the way how it is run, run command `crontab -e`. Also adjust .external/i3_config
 
 
 WP_FOLDER_PATH="/home/tomesh/Pictures/wallpapers/1440p"
