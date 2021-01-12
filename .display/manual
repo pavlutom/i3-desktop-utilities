@@ -3,4 +3,4 @@
 arandr 
 
 sh ~/.scripts/compton_restart
-zsh ~/.scripts/feh_bg -s -t
+zsh ~/.scripts/.display/.set_bg.sh
