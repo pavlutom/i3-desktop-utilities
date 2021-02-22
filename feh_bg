@@ -5,7 +5,7 @@
 
 
 WP_FOLDER_PATH="/home/tomesh/Pictures/wallpapers/1440p"
-WP_PATH="$WP_FOLDER_PATH/neon.jpg"
+WP_PATH="$WP_FOLDER_PATH/redblue.png"
 
 XINERAMA="--no-xinerama"
 
