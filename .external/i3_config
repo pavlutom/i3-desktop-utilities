@@ -223,11 +223,11 @@ bar {
                         dshare.path=/home/tomesh/disks/share/ \
                         dshare.format='ntfs {used} [{percent:.0f}%]'
         colors {
-                background #16171355
+                background #16171388
                 # class            border    bg        text
                 focused_workspace  #F8F8F299 #F8F8F299 #16171399
                 active_workspace   #88888577 #88888577 #F8F8F2
-                inactive_workspace #16171355 #16171355 #F8F8F2
+                inactive_workspace #16171388 #16171388 #F8F8F2
                 urgent_workspace   #F92672   #F92672   #272822
         }
 }

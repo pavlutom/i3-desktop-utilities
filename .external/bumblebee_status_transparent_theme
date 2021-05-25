@@ -14,7 +14,7 @@
 		"separator": ""
     },
     "cycle": [
-        { "fg": "#F8F8F2", "bg": "#16171355" }
+        { "fg": "#F8F8F2", "bg": "#16171388" }
     ],
     "battery": {
         "charging": {
